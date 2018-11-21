@@ -2,7 +2,7 @@ var spins = 0;
 var is_win = 0;
 var cnt = 0;
 
-var playing = false;
+var playing =  false;
 var gobutton = document.getElementById("gobutton");
 var wheel = document.getElementsByClassName("roue1")[0];
 var wheel2 = document.getElementsByClassName("roue2")[0];
