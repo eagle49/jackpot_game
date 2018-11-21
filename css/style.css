@@ -1,0 +1,158 @@
+html, body {
+  margin: 0;
+  overflow: hidden;
+  transition: .5s;
+  height: 100%;
+  width: 100%;
+  background-color: #c1220d;
+  background-image: url("star2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  width: 200px;
+  height: 200px;
+  perspective: 2000px;
+}
+
+#gobutton:link, #gobutton:hover, #gobutton:active {
+  position: absolute;
+  background-color: #c1220d;
+  padding: 20px 40px;
+  border-radius: 4px;
+}
+
+#gobutton2:link, #gobutton2:hover, #gobutton2:active {
+  position: absolute;
+  left: 120px;
+  background-color: #c1220d;
+  padding: 20px 40px;
+  border-radius: 4px;
+}
+
+.cube {
+  transition: 0.5s;
+  transition-timing-function: linear;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateZ(-2000px);
+  transform-style: preserve-3d;
+}
+
+.cube figure {
+  margin: 0;
+  width: 196px;
+  height: 196px;
+  display: block;
+  position: absolute;
+  border: 2px solid black;
+  text-align: center;
+  background-color: #DDEEDD;
+}
+
+.detail {
+  margin-top: 20px;
+}
+
+.cube .front {
+  transform: rotateY(0deg) translateZ(240px);
+}
+
+.cube .back {
+  transform: rotateX(180deg) translateZ(240px);
+}
+
+.cube .top-front {
+  transform: rotateX(45deg) translateZ(240px);
+}
+
+.cube .bottom-back {
+  transform: rotateX(-45deg) translateZ(240px);
+}
+
+.cube .top {
+  transform: rotateX(90deg) translateZ(240px);
+}
+
+.cube .bottom {
+  transform: rotateX(-90deg) translateZ(240px);
+}
+
+.cube .top-back {
+  transform: rotateX(45deg) translateZ(-240px);
+}
+.cube .top-back img {
+  transform: rotate(180deg);
+}
+
+.cube .bottom-front {
+  transform: rotateX(-45deg) translateZ(-240px);
+}
+.cube .bottom-front img {
+  transform: scaleX(-1) rotate(180deg);
+}
+
+.cube {
+  transition-timing-function: linear;
+  transform: translateZ(-2000px) rotateX(-180deg);
+  animation: rotating 0.5s linear infinite paused;
+}
+
+.cube.roue2 {
+  left: 120%;
+}
+
+.cube.roue3 {
+  right: 120%;
+}
+
+@keyframes rotating {
+  from {
+    transform: translateZ(-2000px) rotateX(0deg);
+  }
+  to {
+    transform: translateZ(-2000px) rotateX(360deg);
+  }
+}
+@keyframes lastRotating {
+  100% {
+    transform: translateZ(-2000px) rotateX(90deg);
+  }
+}
+@keyframes rotateRoueFolle {
+  0% {
+    transform: scale(1.2) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.2) rotate(360deg);
+  }
+}
+.svgInterface {
+  position: absolute;
+  left: -153px;
+  top: -115px;
+}
+
+#roueFolle {
+  position: relative;
+  left: -307%;
+  top: -320%;
+  transform: scale(0.01);
+  z-index: -1;
+  transition: 2s;
+}
+
+.swal2-popup .swal2-styled.swal2-confirm {
+  border: 0;
+  border-radius: .25em;
+  background: initial;
+  background-color: #c1220d;
+  color: #fff;
+  font-size: 1.0625em;
+}
