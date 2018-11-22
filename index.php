@@ -2,7 +2,7 @@
 
 $date = date("Y-m-d");
 echo $date;
-$con = mysqli_connect("localhost","root","password", 'db_jack');
+$con = mysqli_connect("localhost","root","", 'db_jack');
 $sql = "SELECT * FROM winners WHERE date = '".$date."'";
 // echo $sql;
 $result= mysqli_query($con, $sql);
