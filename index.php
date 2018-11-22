@@ -1,7 +1,8 @@
 <?php
 
 $date = date("Y-m-d");
-$con = mysqli_connect("localhost","root","", 'db_jack');
+echo $date;
+$con = mysqli_connect("localhost","root","password", 'db_jack');
 $sql = "SELECT * FROM winners WHERE date = '".$date."'";
 // echo $sql;
 $result= mysqli_query($con, $sql);
@@ -108,12 +109,12 @@ $winner = mysqli_num_rows($result);
     <script>
       var winner = "<?=$winner?>";
       console.log(winner);
-      if(winner >= 3){
-        swal({
-          type: 'info',
-          title: 'There are 3 Winners',
-        });
-      }
+      // if(winner >= 3){
+      //   swal({
+      //     type: 'info',
+      //     title: 'There are 3 Winners',
+      //   });
+      // }
     </script>
 
 

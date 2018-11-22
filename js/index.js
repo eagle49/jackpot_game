@@ -2,7 +2,7 @@ var spins = 0;
 var is_win = 0;
 var cnt = 0;
 
-var playing =  false;
+var playing = false;
 var gobutton = document.getElementById("gobutton");
 var wheel = document.getElementsByClassName("roue1")[0];
 var wheel2 = document.getElementsByClassName("roue2")[0];
@@ -19,18 +19,22 @@ document.getElementById("gobutton2").addEventListener("click", button2);
 function play() {
   if ( playing )
     return;
-  if(is_win == 1) {
-    return;
-  }
-  if (winner >= 3)
-    return;
-  if(cnt == 1) {
-    return;
-  }
+
+  // if (winner >= 3)
+  //   return;
+  
   var play_count = getTodayCount();
   console.log('play_count', play_count);
-  if ( play_count > 3 )
+
+  if(is_win == 1) {
+    swal({type: 'info',title:'You already played 3 times... please try again tomorrow'});
+    play_count = 4;
+  }
+
+  if ( play_count > 3 ) {
+    swal({type: 'info',title:'You may only play 3 times a day... please try again tomorrow'});
     return;
+  }
   playing = true;
   audio.play();
   body.style.background = "black";
@@ -62,12 +66,23 @@ function button2() {
   });
   body.style.background = "#c1220d";
   roueFolle.style.animation = "";
+
+  
   console.log( results[2] +' '+ results[0] +' '+ results[1] )
   if( results[0] == results[1] == results[2] ) {
-    audio3.play();
-    win();
-    is_win++;
-    // spins = 0;
+
+    if(winner >=3 ) {
+      audio2.play();
+      swal({type: 'info',title:'Sorry! there are only 3 winners...Try again in tomorrow'});
+      is_win++;
+    }
+
+    else{
+      audio3.play();
+      win();
+      is_win++;
+      // spins = 0;
+    }
     
   } else {
     audio2.play();
@@ -119,7 +134,7 @@ function win(){
 
   
 function lose(){
-  swal({type: 'warning',title:'Sorry! Try again in tomorrow'});
+  swal({type: 'info',title:'Sorry! You already played 3 times... Try again in tomorrow'});
 
 }
 
